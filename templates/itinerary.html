@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">
+            <i class="fas fa-route me-2"></i>Your Travel Itinerary
+        </h2>
+        <span class="badge bg-info text-dark">
+            {% if source == 'cache' %}
+                <i class="fas fa-database me-1"></i>From Cache
+            {% else %}
+                <i class="fas fa-robot me-1"></i>Freshly Generated
+            {% endif %}
+        </span>
+    </div>
+    <div class="card-body">
+        <div class="itinerary-header mb-4">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>{{ destination }}</h3>
+                    <p class="text-muted">
+                        <i class="fas fa-calendar-day me-1"></i> {{ days }} day{% if days != 1 %}s{% endif %} | 
+                        <i class="fas fa-wallet me-1"></i> {{ budget }} budget | 
+                        <i class="fas fa-star me-1"></i> {{ theme }} theme
+                    </p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i> Create New
+                    </a>
+                    <button class="btn btn-outline-primary ms-2" onclick="window.print()">
+                        <i class="fas fa-print me-1"></i> Print
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="itinerary-content">
+            <div class="itinerary-days">
+                {% if itinerary %}
+                    {% for day in itinerary %}
+                    <div class="itinerary-day">
+                        <h4>Day {{ day.day }}</h4>
+                        <div class="itinerary-details">
+                            <h5>Morning</h5>
+                            <p>{{ day.morning }}</p>
+                            <h5>Afternoon</h5>
+                            <p>{{ day.afternoon }}</p>
+                            <h5>Evening</h5>
+                            <p>{{ day.evening }}</p>
+                            <h5>Estimated Cost</h5>
+                            <p>{{ day.estimated_cost_in_dollars }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-danger">Unable to display itinerary. Please try again.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">Generated with Gemini AI</small>
+            <div>
+                <button class="btn btn-sm btn-outline-primary" id="copyBtn" onclick="copyItinerary()">
+                    <i class="fas fa-copy me-1"></i> Copy
+                </button>
+                <a href="{{ url_for('index') }}" class="btn btn-sm btn-primary ms-2">
+                    <i class="fas fa-plus me-1"></i> Create Another
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function copyItinerary() {
+    const itineraryText = document.querySelector('.itinerary-content').innerText;
+    navigator.clipboard.writeText(itineraryText).then(() => {
+        const copyBtn = document.getElementById('copyBtn');
+        copyBtn.innerHTML = '<i class="fas fa-check me-1"></i> Copied!';
+        
+        setTimeout(() => {
+            copyBtn.innerHTML = '<i class="fas fa-copy me-1"></i> Copy';
+        }, 2000);
+    });
+}
+</script>
+
+{% endblock %}
