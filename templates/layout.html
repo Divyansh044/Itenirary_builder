@@ -13,34 +13,21 @@
 </head>
 <body>
     <!-- 3D Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-3d shadow">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url_for('index') }}">
-                <i class="fas fa-plane-departure"></i>Travel Itinerary
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item">
-                        <a class="nav-link{% if request.endpoint == 'index' %} active{% endif %}" href="{{ url_for('index') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#planning-form">Plan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#destination-grid">Destinations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact-footer">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    <!-- 3D Navbar -->
+<nav class="navbar-glass">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <i class="fas fa-map-marked-alt"></i> TravelAI
+    </a>
+    <div class="navbar-links">
+      <a href="#" class="nav-link">Home</a>
+      <a href="#planning-form" class="nav-link">Plan Trip</a>
+      <a href="#" class="nav-link">Destinations</a>
+      <a href="#" class="nav-link">Tips</a>
+      <a href="#" class="nav-link">Contact</a>
+    </div>
+  </div>
+</nav>
     <main class="container py-4">
         <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}

@@ -2,250 +2,320 @@
 
 {% block content %}
 
-<!-- Hero Section with Slideshow -->
-<section class="hero position-relative">
-  <div class="slideshow-container" id="hero-slideshow"></div>
-  <div class="hero-overlay d-flex flex-column justify-content-center align-items-center text-center">
-    <h1 class="hero-title display-3 fw-bold mb-3">Design Your Dream Itinerary</h1>
-    <p class="hero-subtitle lead mb-4">AI-powered custom travel plans in seconds</p>
-    <a href="#planning-form" class="btn btn-primary btn-lg shadow px-5 py-3">
-      <i class="fas fa-map-marked-alt me-2"></i>Start Planning
+<!-- Hero Section -->
+<section class="hero">
+  <!-- Slideshow Container -->
+  <div class="slideshow-container">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80')"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1488085061387-422e29b40080?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80')"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80')"></div>
+  </div>
+  
+  <!-- Hero Content -->
+  <div class="hero-overlay">
+    <h1 class="hero-title">
+      <span class="hero-highlight">Perfect</span> Travel Itineraries
+    </h1>
+    <p class="hero-subtitle">
+      AI-powered custom travel plans with insider tips<br>
+      <span class="hero-typed">for every destination, budget, and style</span>
+    </p>
+    <a href="#planning-form" class="btn btn-hero">
+      <i class="fas fa-map-marked-alt"></i> Start Planning Now
     </a>
+  </div>
+  
+  <!-- Scrolling Indicator -->
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- Add this right after the hero section -->
+<section class="what-we-do py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Image on the left -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="image-container rounded-4 overflow-hidden shadow-lg">
+          <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+               alt="Travel planning" 
+               class="img-fluid">
+        </div>
+      </div>
+      
+      <!-- Content on the right -->
+      <div class="col-lg-6">
+        <h2 class="section-title mb-4 fw-bold">What We Do</h2>
+        <div class="feature-list">
+          <div class="feature-item d-flex mb-4">
+            <div class="feature-icon me-4 text-primary">
+              <i class="fas fa-map-marked-alt fa-2x"></i>
+            </div>
+            <div class="feature-content">
+              <h3 class="h5 fw-semibold">Custom Travel Itineraries</h3>
+              <p class="mb-0 text-muted">We create personalized travel plans tailored to your preferences, budget, and travel style using advanced AI technology.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item d-flex mb-4">
+            <div class="feature-icon me-4 text-primary">
+              <i class="fas fa-lightbulb fa-2x"></i>
+            </div>
+            <div class="feature-content">
+              <h3 class="h5 fw-semibold">Expert Travel Tips</h3>
+              <p class="mb-0 text-muted">Get insider knowledge on the best times to visit, local customs, hidden gems, and must-try experiences at your destination.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item d-flex mb-4">
+            <div class="feature-icon me-4 text-primary">
+              <i class="fas fa-suitcase fa-2x"></i>
+            </div>
+            <div class="feature-content">
+              <h3 class="h5 fw-semibold">Packing Recommendations</h3>
+              <p class="mb-0 text-muted">We'll suggest exactly what to pack based on your destination, season, and planned activities - never forget essentials again!</p>
+            </div>
+          </div>
+          
+          <div class="feature-item d-flex">
+            <div class="feature-icon me-4 text-primary">
+              <i class="fas fa-clock fa-2x"></i>
+            </div>
+            <div class="feature-content">
+              <h3 class="h5 fw-semibold">Time Optimization</h3>
+              <p class="mb-0 text-muted">Our itineraries maximize your time by grouping nearby attractions and suggesting efficient routes between locations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Form Section -->
 <section class="form-section py-5" id="planning-form">
   <div class="container">
-    <div class="form-container mx-auto shadow-lg rounded-4 bg-white p-4 p-md-5" style="max-width: 900px;">
-      <div class="travel-elements position-relative mb-4">
-        <div class="floating-element passport"><i class="fas fa-passport"></i></div>
-        <div class="floating-element plane"><i class="fas fa-plane"></i></div>
-        <div class="floating-element camera"><i class="fas fa-camera"></i></div>
-        <div class="floating-element map"><i class="fas fa-map"></i></div>
-        <div class="floating-element suitcase"><i class="fas fa-suitcase"></i></div>
+    <div class="form-container mx-auto shadow p-4 p-md-5 rounded-4" style="max-width: 900px;">
+      <div class="form-header text-center mb-4">
+        <h2 class="section-title fw-bold mb-2">Create Your Dream Journey</h2>
+        <p class="text-muted">Fill in your preferences and let our AI create the perfect itinerary for you</p>
       </div>
-      <div class="form-card">
-        <div class="form-header text-center mb-4">
-          <h2 class="fw-semibold mb-2">Create Your Dream Journey</h2>
-          <p class="text-muted">Fill in your preferences and let our AI create the perfect itinerary for you</p>
-        </div>
-        <div class="progress-container mb-4">
-          <div class="progress-steps d-flex justify-content-between mb-2">
-            <div class="progress-step active" data-step="destination">
-              <div class="step-icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div class="step-label">Destination</div>
-            </div>
-            <div class="progress-step" data-step="duration">
-              <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
-              <div class="step-label">Duration</div>
-            </div>
-            <div class="progress-step" data-step="preferences">
-              <div class="step-icon"><i class="fas fa-sliders-h"></i></div>
-              <div class="step-label">Preferences</div>
-            </div>
-            <div class="progress-step" data-step="generate">
-              <div class="step-icon"><i class="fas fa-magic"></i></div>
-              <div class="step-label">Create</div>
-            </div>
+      
+      <div class="progress-container mb-4">
+        <div class="progress-steps d-flex justify-content-between mb-2">
+          <div class="progress-step active" data-step="destination">
+            <div class="step-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="step-label">Destination</div>
           </div>
-          <div class="progress-bar-container">
-            <div class="progress-bar" style="width: 25%"></div>
+          <div class="progress-step" data-step="duration">
+            <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="step-label">Duration</div>
+          </div>
+          <div class="progress-step" data-step="preferences">
+            <div class="step-icon"><i class="fas fa-sliders-h"></i></div>
+            <div class="step-label">Preferences</div>
+          </div>
+          <div class="progress-step" data-step="generate">
+            <div class="step-icon"><i class="fas fa-magic"></i></div>
+            <div class="step-label">Create</div>
           </div>
         </div>
-        <form action="{{ url_for('generate') }}" method="post" id="itineraryForm">
-          <!-- Step 1: Destination -->
-          <div class="form-step active" id="step-destination">
-            <h3 class="step-title mb-3">Where would you like to go?</h3>
-            <div class="destination-search-container mb-4">
-              <div class="input-group input-group-lg">
-                <span class="input-group-text bg-white border-end-0"><i class="fas fa-search"></i></span>
-                <input type="text" class="form-control border-start-0" id="destination" name="destination" placeholder="Type a city or country..." required>
-              </div>
-              <div class="popular-destinations mt-3">
-                <p class="small text-muted mb-2">Popular choices:</p>
-                <div class="destination-pills d-flex flex-wrap gap-2">
-                  <span class="destination-pill" data-destination="Paris">Paris</span>
-                  <span class="destination-pill" data-destination="Tokyo">Tokyo</span>
-                  <span class="destination-pill" data-destination="New York">New York</span>
-                  <span class="destination-pill" data-destination="Bali">Bali</span>
-                  <span class="destination-pill" data-destination="Rome">Rome</span>
-                </div>
-              </div>
-            </div>
-            <div class="form-navigation text-end">
-              <button type="button" class="btn btn-primary next-step px-4" data-next="duration">
-                Continue <i class="fas fa-arrow-right ms-2"></i>
-              </button>
-            </div>
-          </div>
-          <!-- Step 2: Duration -->
-          <div class="form-step" id="step-duration">
-            <h3 class="step-title mb-3">How long is your trip?</h3>
-            <div class="duration-slider-container mb-4">
-              <div class="range-container d-flex align-items-center gap-3">
-                <input type="range" class="form-range flex-grow-1" id="daysRange" min="1" max="30" value="5">
-                <div class="duration-display d-flex align-items-center gap-2">
-                  <input type="number" class="form-control form-control-lg text-center" id="days" name="days" min="1" max="30" value="5" required style="width: 90px;">
-                  <span class="duration-label">Days</span>
-                </div>
-              </div>
-              <div class="duration-icons d-flex justify-content-between mt-3">
-                <div class="duration-icon-item text-center" data-days="3">
-                  <i class="fas fa-coffee fa-lg mb-1"></i>
-                  <div>Weekend</div>
-                </div>
-                <div class="duration-icon-item text-center" data-days="7">
-                  <i class="fas fa-umbrella-beach fa-lg mb-1"></i>
-                  <div>Week</div>
-                </div>
-                <div class="duration-icon-item text-center" data-days="14">
-                  <i class="fas fa-route fa-lg mb-1"></i>
-                  <div>2 Weeks</div>
-                </div>
-                <div class="duration-icon-item text-center" data-days="30">
-                  <i class="fas fa-globe-americas fa-lg mb-1"></i>
-                  <div>Month</div>
-                </div>
-              </div>
-            </div>
-            <div class="form-navigation d-flex justify-content-between">
-              <button type="button" class="btn btn-outline-secondary prev-step px-4" data-prev="destination">
-                <i class="fas fa-arrow-left me-2"></i> Back
-              </button>
-              <button type="button" class="btn btn-primary next-step px-4" data-next="preferences">
-                Continue <i class="fas fa-arrow-right ms-2"></i>
-              </button>
-            </div>
-          </div>
-          <!-- Step 3: Preferences -->
-          <div class="form-step" id="step-preferences">
-            <h3 class="step-title mb-3">What's your travel style?</h3>
-            <div class="row mb-4">
-              <div class="col-md-6">
-                <div class="preference-card p-4 rounded-3 shadow-sm mb-4">
-                  <h4 class="mb-3"><i class="fas fa-wallet me-2"></i>Budget</h4>
-                  <div class="budget-options d-flex gap-2">
-                    <div class="budget-option flex-fill">
-                      <input type="radio" class="btn-check" name="budget" id="budget-option1" value="budget" required>
-                      <label class="btn btn-outline-primary w-100" for="budget-option1">
-                        <i class="fas fa-dollar-sign"></i>
-                        <span>Economy</span>
-                      </label>
-                    </div>
-                    <div class="budget-option flex-fill">
-                      <input type="radio" class="btn-check" name="budget" id="budget-option2" value="moderate" checked>
-                      <label class="btn btn-outline-primary w-100" for="budget-option2">
-                        <i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i>
-                        <span>Moderate</span>
-                      </label>
-                    </div>
-                    <div class="budget-option flex-fill">
-                      <input type="radio" class="btn-check" name="budget" id="budget-option3" value="luxury">
-                      <label class="btn btn-outline-primary w-100" for="budget-option3">
-                        <i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i>
-                        <span>Luxury</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="preference-card p-4 rounded-3 shadow-sm">
-                  <h4 class="mb-3"><i class="fas fa-star me-2"></i>Travel Theme</h4>
-                  <select class="form-select form-select-lg theme-select mb-3" id="theme" name="theme" required>
-                    <option value="" selected disabled>Choose your experience...</option>
-                    <option value="quiet" data-icon="fa-hot-tub">Quiet & Relaxing</option>
-                    <option value="historical" data-icon="fa-landmark">Historical & Cultural</option>
-                    <option value="party" data-icon="fa-cocktail">Nightlife & Entertainment</option>
-                    <option value="adventure" data-icon="fa-hiking">Adventure & Outdoors</option>
-                    <option value="family" data-icon="fa-child">Family-Friendly</option>
-                    <option value="food" data-icon="fa-utensils">Food & Culinary</option>
-                    <option value="romantic" data-icon="fa-heart">Romantic</option>
-                    <option value="shopping" data-icon="fa-shopping-bag">Shopping & Fashion</option>
-                  </select>
-                  <div class="theme-preview mt-3" id="theme-preview">
-                    <div class="theme-icon">
-                      <i class="fas fa-question-circle"></i>
-                    </div>
-                    <div class="theme-description text-muted">
-                      Select a theme to see details
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-navigation d-flex justify-content-between">
-              <button type="button" class="btn btn-outline-secondary prev-step px-4" data-prev="duration">
-                <i class="fas fa-arrow-left me-2"></i> Back
-              </button>
-              <button type="button" class="btn btn-primary next-step px-4" data-next="generate">
-                Continue <i class="fas fa-arrow-right ms-2"></i>
-              </button>
-            </div>
-          </div>
-          <!-- Step 4: Generate -->
-          <div class="form-step" id="step-generate">
-            <div class="generate-summary">
-              <h3 class="step-title mb-4">Ready to create your itinerary!</h3>
-              <div class="summary-container row g-3">
-                <div class="col-md-6">
-                  <div class="summary-item d-flex align-items-center gap-3 p-3 rounded-3 bg-light shadow-sm">
-                    <div class="summary-icon text-primary fs-2">
-                      <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="summary-content">
-                      <h4 class="mb-1 fs-6 fw-bold">Destination</h4>
-                      <p id="summary-destination" class="mb-0 text-muted">Loading...</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="summary-item d-flex align-items-center gap-3 p-3 rounded-3 bg-light shadow-sm">
-                    <div class="summary-icon text-primary fs-2">
-                      <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <div class="summary-content">
-                      <h4 class="mb-1 fs-6 fw-bold">Duration</h4>
-                      <p id="summary-duration" class="mb-0 text-muted">Loading...</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="summary-item d-flex align-items-center gap-3 p-3 rounded-3 bg-light shadow-sm">
-                    <div class="summary-icon text-primary fs-2">
-                      <i class="fas fa-wallet"></i>
-                    </div>
-                    <div class="summary-content">
-                      <h4 class="mb-1 fs-6 fw-bold">Budget</h4>
-                      <p id="summary-budget" class="mb-0 text-muted">Loading...</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="summary-item d-flex align-items-center gap-3 p-3 rounded-3 bg-light shadow-sm">
-                    <div class="summary-icon text-primary fs-2">
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <div class="summary-content">
-                      <h4 class="mb-1 fs-6 fw-bold">Theme</h4>
-                      <p id="summary-theme" class="mb-0 text-muted">Loading...</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-navigation d-flex justify-content-between mt-4">
-              <button type="button" class="btn btn-outline-secondary prev-step px-4" data-prev="preferences">
-                <i class="fas fa-arrow-left me-2"></i> Back
-              </button>
-              <button type="submit" class="btn btn-primary btn-lg px-5" id="generateBtn">
-                <i class="fas fa-magic me-2"></i>Generate My Itinerary
-              </button>
-            </div>
-          </div>
-        </form>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: 25%"></div>
+        </div>
       </div>
+      
+      <form action="/generate" method="post" id="itineraryForm">
+        <!-- Step 1: Destination -->
+        <div class="form-step active" id="step-destination">
+          <h3 class="step-title mb-4">Where would you like to go?</h3>
+          <div class="destination-search mb-4">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
+              <input type="text" class="form-control" id="destination" name="destination" placeholder="Type a city or country..." required>
+            </div>
+            <div class="popular-destinations mt-3">
+              <p class="text-muted mb-2">Popular choices:</p>
+              <div class="destination-pills">
+                <span class="destination-pill" data-destination="Paris">Paris</span>
+                <span class="destination-pill" data-destination="Tokyo">Tokyo</span>
+                <span class="destination-pill" data-destination="New York">New York</span>
+                <span class="destination-pill" data-destination="Bali">Bali</span>
+                <span class="destination-pill" data-destination="Rome">Rome</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-navigation text-end">
+            <button type="button" class="btn btn-primary next-step" data-next="duration">
+              Continue <i class="fas fa-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Step 2: Duration -->
+        <div class="form-step" id="step-duration">
+          <h3 class="step-title mb-4">How long is your trip?</h3>
+          <div class="duration-slider mb-4">
+            <div class="range-container d-flex align-items-center gap-3">
+              <input type="range" class="form-range" id="daysRange" min="1" max="30" value="5">
+              <div class="duration-display">
+                <input type="number" class="form-control" id="days" name="days" min="1" max="30" value="5" required>
+                <span class="duration-label">Days</span>
+              </div>
+            </div>
+            <div class="duration-icons mt-4">
+              <div class="duration-icon-item" data-days="3">
+                <i class="fas fa-coffee"></i>
+                <div>Weekend</div>
+              </div>
+              <div class="duration-icon-item" data-days="7">
+                <i class="fas fa-umbrella-beach"></i>
+                <div>Week</div>
+              </div>
+              <div class="duration-icon-item" data-days="14">
+                <i class="fas fa-route"></i>
+                <div>2 Weeks</div>
+              </div>
+              <div class="duration-icon-item" data-days="30">
+                <i class="fas fa-globe-americas"></i>
+                <div>Month</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-navigation d-flex justify-content-between">
+            <button type="button" class="btn btn-outline-secondary prev-step" data-prev="destination">
+              <i class="fas fa-arrow-left me-2"></i> Back
+            </button>
+            <button type="button" class="btn btn-primary next-step" data-next="preferences">
+              Continue <i class="fas fa-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Step 3: Preferences -->
+        <div class="form-step" id="step-preferences">
+          <h3 class="step-title mb-4">What's your travel style?</h3>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="preference-card">
+                <h4><i class="fas fa-wallet"></i> Budget</h4>
+                <div class="budget-options">
+                  <div class="budget-option">
+                    <input type="radio" class="btn-check" name="budget" id="budget-option1" value="budget" required>
+                    <label class="btn" for="budget-option1">
+                      <i class="fas fa-dollar-sign"></i>
+                      <span>Economy</span>
+                    </label>
+                  </div>
+                  <div class="budget-option">
+                    <input type="radio" class="btn-check" name="budget" id="budget-option2" value="moderate" checked>
+                    <label class="btn" for="budget-option2">
+                      <i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i>
+                      <span>Moderate</span>
+                    </label>
+                  </div>
+                  <div class="budget-option">
+                    <input type="radio" class="btn-check" name="budget" id="budget-option3" value="luxury">
+                    <label class="btn" for="budget-option3">
+                      <i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i>
+                      <span>Luxury</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="preference-card">
+                <h4><i class="fas fa-star"></i> Travel Theme</h4>
+                <select class="form-select theme-select" id="theme" name="theme" required>
+                  <option value="" selected disabled>Choose your experience...</option>
+                  <option value="quiet" data-icon="fa-hot-tub">Quiet & Relaxing</option>
+                  <option value="historical" data-icon="fa-landmark">Historical & Cultural</option>
+                  <option value="party" data-icon="fa-cocktail">Nightlife & Entertainment</option>
+                  <option value="adventure" data-icon="fa-hiking">Adventure & Outdoors</option>
+                  <option value="family" data-icon="fa-child">Family-Friendly</option>
+                  <option value="food" data-icon="fa-utensils">Food & Culinary</option>
+                  <option value="romantic" data-icon="fa-heart">Romantic</option>
+                  <option value="shopping" data-icon="fa-shopping-bag">Shopping & Fashion</option>
+                </select>
+                <div class="theme-preview mt-3" id="theme-preview">
+                  <div class="theme-icon">
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                  <div class="theme-description">
+                    Select a theme to see details
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-navigation d-flex justify-content-between mt-4">
+            <button type="button" class="btn btn-outline-secondary prev-step" data-prev="duration">
+              <i class="fas fa-arrow-left me-2"></i> Back
+            </button>
+            <button type="button" class="btn btn-primary next-step" data-next="generate">
+              Continue <i class="fas fa-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Step 4: Generate -->
+        <div class="form-step" id="step-generate">
+          <h3 class="step-title mb-4">Ready to create your itinerary!</h3>
+          <div class="summary-container">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="summary-item">
+                  <div class="summary-icon"><i class="fas fa-map-marker-alt"></i></div>
+                  <div class="summary-content">
+                    <h4>Destination</h4>
+                    <p id="summary-destination">Loading...</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="summary-item">
+                  <div class="summary-icon"><i class="fas fa-calendar-alt"></i></div>
+                  <div class="summary-content">
+                    <h4>Duration</h4>
+                    <p id="summary-duration">Loading...</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="summary-item">
+                  <div class="summary-icon"><i class="fas fa-wallet"></i></div>
+                  <div class="summary-content">
+                    <h4>Budget</h4>
+                    <p id="summary-budget">Loading...</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="summary-item">
+                  <div class="summary-icon"><i class="fas fa-star"></i></div>
+                  <div class="summary-content">
+                    <h4>Theme</h4>
+                    <p id="summary-theme">Loading...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-navigation d-flex justify-content-between mt-4">
+            <button type="button" class="btn btn-outline-secondary prev-step" data-prev="preferences">
+              <i class="fas fa-arrow-left me-2"></i> Back
+            </button>
+            <button type="submit" class="btn btn-primary generate-btn" id="generateBtn">
+              <i class="fas fa-magic me-2"></i> Generate My Itinerary
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </section>

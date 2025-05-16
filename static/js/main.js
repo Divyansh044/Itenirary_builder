@@ -73,6 +73,13 @@ const heroDestinations = [
 
 async function setupHeroSlideshow() {
   const slideshowContainer = document.getElementById("hero-slideshow");
+  
+  // Check if the slideshow container exists
+  if (!slideshowContainer) {
+    console.log("Hero slideshow container not found, skipping slideshow setup");
+    return; // Exit the function if element doesn't exist
+  }
+  
   let slideIndex = 0;
 
   try {
@@ -115,9 +122,12 @@ async function setupHeroSlideshow() {
 
   } catch (error) {
     console.error("Hero slideshow setup failed:", error);
-    slideshowContainer.style.backgroundImage = "url('https://via.placeholder.com/1920x1080?text=Explore+the+World')";
-    slideshowContainer.style.backgroundSize = "cover";
-    slideshowContainer.style.backgroundPosition = "center";
+    // Only try to set background if the container exists
+    if (slideshowContainer) {
+      slideshowContainer.style.backgroundImage = "url('https://via.placeholder.com/1920x1080?text=Explore+the+World')";
+      slideshowContainer.style.backgroundSize = "cover";
+      slideshowContainer.style.backgroundPosition = "center";
+    }
   }
 }
 
@@ -145,6 +155,13 @@ function createCard(place, url) {
 // Function to fetch destination images
 async function fetchDestinationImages() {
   const grid = document.getElementById("destination-grid");
+  
+  // Exit if grid doesn't exist
+  if (!grid) {
+    console.log("Destination grid not found, skipping destination image fetch");
+    return;
+  }
+  
   grid.innerHTML = ''; // Clear any existing content
 
   for (const place of destinations) {
@@ -165,9 +182,23 @@ async function fetchDestinationImages() {
 // Add this to your existing script section 
 // Form functionality
 document.addEventListener('DOMContentLoaded', () => {
-  setupHeroSlideshow();
-  fetchDestinationImages();
-  setupFormInteraction();
+  try {
+    setupHeroSlideshow();
+  } catch (error) {
+    console.error("Error in setupHeroSlideshow:", error);
+  }
+  
+  try {
+    fetchDestinationImages();
+  } catch (error) {
+    console.error("Error in fetchDestinationImages:", error);
+  }
+  
+  try {
+    setupFormInteraction();
+  } catch (error) {
+    console.error("Error in setupFormInteraction:", error);
+  }
 });
 
 function setupFormInteraction() {
@@ -176,12 +207,20 @@ function setupFormInteraction() {
   const progressSteps = document.querySelectorAll('.progress-step');
   const formSteps = document.querySelectorAll('.form-step');
   
+  // Skip if form elements don't exist
+  if (!progressBar || !progressSteps.length || !formSteps.length) {
+    console.log("Form elements not found, skipping form interaction setup");
+    return;
+  }
+  
   // Next step buttons
   document.querySelectorAll('.next-step').forEach(button => {
     button.addEventListener('click', () => {
       const currentStep = button.closest('.form-step');
       const nextStepId = button.getAttribute('data-next');
       const nextStep = document.getElementById(`step-${nextStepId}`);
+      
+      if (!currentStep || !nextStep) return;
       
       // Basic validation
       let isValid = true;
@@ -219,6 +258,8 @@ function setupFormInteraction() {
       const prevStepId = button.getAttribute('data-prev');
       const prevStep = document.getElementById(`step-${prevStepId}`);
       
+      if (!currentStep || !prevStep) return;
+      
       // Transition to previous step
       currentStep.classList.remove('active');
       prevStep.classList.add('active');
@@ -247,9 +288,12 @@ function setupFormInteraction() {
   document.querySelectorAll('.destination-pill').forEach(pill => {
     pill.addEventListener('click', () => {
       const destination = pill.getAttribute('data-destination');
-      document.getElementById('destination').value = destination;
-      document.querySelectorAll('.destination-pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
+      const destinationInput = document.getElementById('destination');
+      if (destinationInput) {
+        destinationInput.value = destination;
+        document.querySelectorAll('.destination-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      }
     });
   });
   
@@ -257,24 +301,28 @@ function setupFormInteraction() {
   const daysRange = document.getElementById('daysRange');
   const daysInput = document.getElementById('days');
   
-  daysRange.addEventListener('input', () => {
-    daysInput.value = daysRange.value;
-  });
-  
-  daysInput.addEventListener('input', () => {
-    if (daysInput.value > 30) daysInput.value = 30;
-    if (daysInput.value < 1) daysInput.value = 1;
-    daysRange.value = daysInput.value;
-  });
+  if (daysRange && daysInput) {
+    daysRange.addEventListener('input', () => {
+      daysInput.value = daysRange.value;
+    });
+    
+    daysInput.addEventListener('input', () => {
+      if (daysInput.value > 30) daysInput.value = 30;
+      if (daysInput.value < 1) daysInput.value = 1;
+      daysRange.value = daysInput.value;
+    });
+  }
   
   // Duration presets
   document.querySelectorAll('.duration-icon-item').forEach(item => {
     item.addEventListener('click', () => {
       const days = item.getAttribute('data-days');
-      daysInput.value = days;
-      daysRange.value = days;
-      document.querySelectorAll('.duration-icon-item').forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
+      if (daysInput && daysRange) {
+        daysInput.value = days;
+        daysRange.value = days;
+        document.querySelectorAll('.duration-icon-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      }
     });
   });
   
@@ -293,37 +341,55 @@ function setupFormInteraction() {
     'shopping': 'Retail therapy at markets, malls and boutiques.'
   };
   
-  themeSelect.addEventListener('change', () => {
-    const selectedOption = themeSelect.options[themeSelect.selectedIndex];
-    const icon = selectedOption.getAttribute('data-icon');
-    const theme = selectedOption.value;
-    
-    if (theme) {
-      themePreview.innerHTML = `
-        <div class="theme-icon">
-          <i class="fas ${icon}"></i>
-        </div>
-        <div class="theme-description">
-          ${themeDescriptions[theme]}
-        </div>
-      `;
-    }
-  });
+  if (themeSelect && themePreview) {
+    themeSelect.addEventListener('change', () => {
+      const selectedOption = themeSelect.options[themeSelect.selectedIndex];
+      const icon = selectedOption.getAttribute('data-icon');
+      const theme = selectedOption.value;
+      
+      if (theme) {
+        themePreview.innerHTML = `
+          <div class="theme-icon">
+            <i class="fas ${icon}"></i>
+          </div>
+          <div class="theme-description">
+            ${themeDescriptions[theme]}
+          </div>
+        `;
+      }
+    });
+  }
   
   // Update summary
   function updateSummary() {
-    document.getElementById('summary-destination').textContent = document.getElementById('destination').value;
-    document.getElementById('summary-duration').textContent = `${document.getElementById('days').value} days`;
+    const summaryDestination = document.getElementById('summary-destination');
+    const summaryDuration = document.getElementById('summary-duration');
+    const summaryBudget = document.getElementById('summary-budget');
+    const summaryTheme = document.getElementById('summary-theme');
+    const destinationInput = document.getElementById('destination');
+    const daysInput = document.getElementById('days');
     
-    const budgetValue = document.querySelector('input[name="budget"]:checked').value;
-    let budgetDisplay = '';
-    if (budgetValue === 'budget') budgetDisplay = 'Economy';
-    else if (budgetValue === 'moderate') budgetDisplay = 'Moderate';
-    else if (budgetValue === 'luxury') budgetDisplay = 'Luxury';
-    document.getElementById('summary-budget').textContent = budgetDisplay;
+    if (summaryDestination && destinationInput) {
+      summaryDestination.textContent = destinationInput.value;
+    }
     
-    const themeValue = document.getElementById('theme').value;
-    const themeText = document.getElementById('theme').options[document.getElementById('theme').selectedIndex].text;
-    document.getElementById('summary-theme').textContent = themeText;
+    if (summaryDuration && daysInput) {
+      summaryDuration.textContent = `${daysInput.value} days`;
+    }
+    
+    const budgetRadio = document.querySelector('input[name="budget"]:checked');
+    if (summaryBudget && budgetRadio) {
+      const budgetValue = budgetRadio.value;
+      let budgetDisplay = '';
+      if (budgetValue === 'budget') budgetDisplay = 'Economy';
+      else if (budgetValue === 'moderate') budgetDisplay = 'Moderate';
+      else if (budgetValue === 'luxury') budgetDisplay = 'Luxury';
+      summaryBudget.textContent = budgetDisplay;
+    }
+    
+    if (summaryTheme && themeSelect) {
+      const themeText = themeSelect.options[themeSelect.selectedIndex].text;
+      summaryTheme.textContent = themeText;
+    }
   }
 }
