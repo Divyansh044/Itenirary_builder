@@ -5,33 +5,24 @@
 <!-- Hero Section -->
 <section class="hero">
   <!-- Slideshow Container -->
-  <div class="slideshow-container">
-    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80')"></div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1488085061387-422e29b40080?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80')"></div>
-    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80')"></div>
-  </div>
-  
-  <!-- Hero Content -->
-  <div class="hero-overlay">
-    <h1 class="hero-title">
-      <span class="hero-highlight">Perfect</span> Travel Itineraries
-    </h1>
-    <p class="hero-subtitle">
-      AI-powered custom travel plans with insider tips<br>
-      <span class="hero-typed">for every destination, budget, and style</span>
-    </p>
-    <a href="#planning-form" class="btn btn-hero">
-      <i class="fas fa-map-marked-alt"></i> Start Planning Now
-    </a>
-  </div>
-  
-  <!-- Scrolling Indicator -->
-  <div class="scroll-indicator">
-    <div class="mouse">
-      <div class="wheel"></div>
+   <div class="slideshow-container">
+      <div class="slide active" style="background-image: url('static/hero_images/hero1.avif')"></div>
+      <div class="slide" style="background-image: url('static/hero_images/hero2.avif')"></div>
+      <div class="slide" style="background-image: url('static/hero_images/hero3.avif')"></div>
     </div>
-    <div class="arrow"></div>
-  </div>
+  
+  <div class="hero-overlay">
+      <h1 class="hero-title">
+        <span class="hero-highlight">Perfect</span> Travel Itineraries
+      </h1>
+      <p class="hero-subtitle">
+        AI-powered custom travel plans with insider tips<br>
+        <span class="hero-typed">for every destination, budget, and style</span>
+      </p>
+      <a href="#planning-form" class="btn-hero">
+        Start Planning Now
+      </a>
+    </div>
 </section>
 
 <!-- Add this right after the hero section -->
@@ -41,7 +32,7 @@
       <!-- Image on the left -->
       <div class="col-lg-6 mb-4 mb-lg-0">
         <div class="image-container rounded-4 overflow-hidden shadow-lg">
-          <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+          <img src="static/hero_images/hero3.avif" 
                alt="Travel planning" 
                class="img-fluid">
         </div>
@@ -330,7 +321,20 @@
   </div>
 </section>
 
-{% endblock %}
-
-{% block styles %}
+<script>
+    // Improved Slideshow functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.slide');
+      let currentSlide = 0;
+      
+      function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }
+      
+      // Change slides every 5 seconds
+      setInterval(nextSlide, 5000);
+    });
+  </script>
 {% endblock %}
