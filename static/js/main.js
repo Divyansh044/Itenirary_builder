@@ -393,3 +393,15 @@ function setupFormInteraction() {
     }
   }
 }
+
+function copyItinerary() {
+    const itineraryText = document.querySelector('.itinerary-content').innerText;
+    navigator.clipboard.writeText(itineraryText).then(() => {
+        const copyBtn = document.getElementById('copyBtn');
+        copyBtn.innerHTML = '<i class="fas fa-check me-1"></i> Copied!';
+        
+        setTimeout(() => {
+            copyBtn.innerHTML = '<i class="fas fa-copy me-1"></i> Copy';
+        }, 2000);
+    });
+}

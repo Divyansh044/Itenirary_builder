@@ -79,6 +79,7 @@ def index():
 
 
 
+@app.route("/generate", methods=["POST"])
 def generate():
     # Extract form inputs
     destination = request.form["destination"]
@@ -93,15 +94,43 @@ def generate():
     try:
         if cached_response:
             parsed_itinerary = json.loads(cached_response)
-            return render_template("itinerary.html", itinerary=parsed_itinerary, source="cache",
-                                   destination=destination, days=days, budget=budget, theme=theme)
+            suggested_places = parsed_itinerary.get("suggested", [])
+            itinerary = parsed_itinerary.get("itinerary", [])
+            return render_template(
+                "itinerary.html",
+                itinerary=itinerary,
+                suggested_places=suggested_places,
+                destination=destination,
+                days=days,
+                budget=budget,
+                theme=theme
+            )
 
         # Construct the prompt for Gemini
         prompt = f"""
-        Generate a {days}-day travel itinerary to {destination} within a {budget} budget focused on a {theme} theme.
-        Return ONLY a raw JSON list, no markdown, text, or explanation. Each day must include:
-        "day" (int), "morning", "afternoon", "evening", "estimated_cost_in_dollars".
-        """
+Generate a {days}-day travel itinerary to {destination} within a {budget} budget focused on a {theme} theme.
+Return ONLY a raw JSON object, no markdown, text, or explanation.
+The JSON must have two keys:
+- "itinerary": a list where each item is a day with "day" (int), "morning", "afternoon", "evening", "estimated_cost_in_dollars".
+- "suggested": a list of all unique places, attractions, or points of interest mentioned in the itinerary (do not include generic terms like 'hotel' or 'restaurant').
+
+Example:
+{{
+  "itinerary": [
+    {{
+      "day": 1,
+      "morning": "...",
+      "afternoon": "...",
+      "evening": "...",
+      "estimated_cost_in_dollars": 100
+    }},
+    ...
+  ],
+  "suggested": ["Eiffel Tower", "Louvre Museum", "Montmartre"]
+}}
+
+Note: The suggested list will only have the places that are mention in the itinerary for that day.
+"""
 
         # Call the Gemini model
         response = client.models.generate_content(
@@ -113,27 +142,33 @@ def generate():
         raw_json = response.text.strip()
         print("Raw JSON from Gemini:", repr(raw_json))
 
+        # Remove Markdown code block if present
+        raw_json = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw_json.strip(), flags=re.MULTILINE)
+
         # Try to decode the response
         try:
             parsed_itinerary = json.loads(raw_json)
+            suggested_places = parsed_itinerary.get("suggested", [])
+            itinerary = parsed_itinerary.get("itinerary", [])
         except json.JSONDecodeError:
-            import re
-            match = re.search(r'\[\s*{.*?}\s*]', raw_json, re.DOTALL)
-            if match:
-                json_text = match.group(0)
-                parsed_itinerary = json.loads(json_text)
-            else:
-                return render_template("itinerary.html", error="Unable to parse JSON from model output.")
+            return render_template("itinerary.html", error="Unable to parse JSON from model output.")
 
         # Save valid JSON to cache
         save_to_cache(cache_key, destination, days, budget, theme, json.dumps(parsed_itinerary))
 
-        return render_template("itinerary.html", itinerary=parsed_itinerary, source="generated",
-                               destination=destination, days=days, budget=budget, theme=theme)
+        return render_template(
+            "itinerary.html",
+            itinerary=itinerary,
+            suggested_places=suggested_places,
+            destination=destination,
+            days=days,
+            budget=budget,
+            theme=theme
+        )
 
     except Exception as e:
         return render_template("itinerary.html", error=f"Error generating itinerary: {str(e)}")
-
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
