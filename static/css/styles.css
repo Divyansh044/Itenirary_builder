@@ -471,6 +471,7 @@ main {
   font-weight: 800;
   background: linear-gradient(135deg, #2563eb, #4f46e5, #4338ca);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.5px;
   text-shadow: 0 2px 10px rgba(37, 99, 235, 0.15);
