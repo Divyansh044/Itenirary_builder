@@ -30,24 +30,29 @@
     <!-- Glass Travel Navbar -->
     <nav class="navbar-glass">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
           <i class="fas fa-map-marked-alt"></i>
           <span class="brand-text">TRAVEL AI</span>
         </a>
         <div class="navbar-links">
-          <a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a>
-          <a href="#planning-form" class="nav-link"
-            ><i class="fas fa-route"></i> Plan Trip</a
-          >
-          <a href="#" class="nav-link"
-            ><i class="fas fa-globe-americas"></i> Destinations</a
-          >
-          <a href="#" class="nav-link"><i class="fas fa-lightbulb"></i> Tips</a>
+          <a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-home"></i> Home</a>
+          {% if request.path == '/' %}
+          <a href="#planning-form" class="nav-link"><i class="fas fa-route"></i> Plan Trip</a>
+          {% else %}
+          <a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-route"></i> Plan Trip</a>
+          {% endif %}
+          {% if request.path == '/' %}
+          <a href="#suggestions" class="nav-link"><i class="fas fa-globe-americas"></i> Destinations</a>
+          {% else %}
+          <a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-globe-americas"></i> Destinations</a>
+          {% endif %}
+          <a href="#tips-section" class="nav-link"><i class="fas fa-lightbulb"></i> Tips</a>
         </div>
         <div class="navbar-cta">
-          <a href="#planning-form" class="btn-plan"
-            >Get Started <i class="fas fa-arrow-right"></i
+          {% if request.path == '/' %}
+          <a href="#planning-form" class="btn-plan">Get Started <i class="fas fa-arrow-right"></i
           ></a>
+          {%endif%}
         </div>
       </div>
     </nav>
@@ -71,6 +76,24 @@
 
       <!-- Main content -->
       {% block content %}{% endblock %}
+
+      <!-- Add this before the card-footer div -->
+      <div class="card-section tips-section my-4" id="tips-section">
+        <div class="card-header bg-info text-white">
+          <i class="fas fa-lightbulb me-2"></i>Travel Tips
+        </div>
+        <div class="card-body">
+          <div class="typing-container">
+            <div id="tip-title" class="tip-title mb-2"></div>
+            <div id="tip-description" class="tip-description text"></div>
+          </div>
+          <div class="text-end mt-3">
+            <button id="next-tip" class="btn btn-sm btn-outline-info">
+              <i class="fas fa-forward me-1"></i>Next Tip
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="travel-footer">
@@ -86,20 +109,35 @@
               <h4>Quick Links</h4>
               <ul class="footer-links">
                 <li>
-                  <a href="#"><i class="fas fa-chevron-right"></i> Home</a>
+                  <a href="{{ url_for('index') }}"
+                    ><i class="fas fa-chevron-right"></i> Home</a
+                  >
                 </li>
                 <li>
-                  <a href="#planning-form"
+                  {% if request.path == '/' %}
+                  <a href="#planning-form" class="btn-plan"
+                    >Get Started <i class="fas fa-arrow-right"></i
+                  ></a>
+                  {% else %}
+                  <a href="{{ url_for('index') }}"
                     ><i class="fas fa-chevron-right"></i> Plan Trip</a
                   >
                 </li>
+                {%endif%}
+
                 <li>
-                  <a href="#"
+                  {% if request.path == '/' %}
+                  <a href="#suggestions"
                     ><i class="fas fa-chevron-right"></i> Destinations</a
                   >
+                  {% else %}
+                  <a href="{{ url_for('index') }}"
+                    ><i class="fas fa-chevron-right"></i> Destinations</a
+                  >
+                  {%endif%}
                 </li>
                 <li>
-                  <a href="#"
+                  <a href="#tips-section"
                     ><i class="fas fa-chevron-right"></i> Travel Tips</a
                   >
                 </li>
@@ -109,11 +147,12 @@
             <div class="footer-section">
               <h4>Contact Us</h4>
               <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> hello@travelai.com</p>
-                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
                 <p>
-                  <i class="fas fa-map-marker-alt"></i> 123 Travel St,
-                  Wanderlust City
+                  <i class="fas fa-envelope"></i> divyanshbangwal04@gmail.com
+                </p>
+                <p>
+                  <i class="fas fa-map-marker-alt"></i> Yoga Capital of the
+                  World, Rishikesh.
                 </p>
               </div>
             </div>

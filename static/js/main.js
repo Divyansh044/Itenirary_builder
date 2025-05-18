@@ -152,27 +152,35 @@ function createCard(place, url) {
   `;
 }
 
-// Function to fetch destination images
 async function fetchDestinationImages() {
   const grid = document.getElementById("destination-grid");
-  
+
   // Exit if grid doesn't exist
   if (!grid) {
     console.log("Destination grid not found, skipping destination image fetch");
     return;
   }
-  
+
   grid.innerHTML = ''; // Clear any existing content
 
   for (const place of destinations) {
     try {
-      // Fetch from Flask backend instead of Unsplash directly
-      const res = await fetch(`/api/unsplash?query=${encodeURIComponent(place)}&per_page=1`);
-      const data = await res.json();
-      const imgUrl = data.results[0]?.urls?.regular || "https://via.placeholder.com/400x300";
-      grid.innerHTML += createCard(place, imgUrl);
+      // Construct local image path
+      const formattedPlace = place.toLowerCase().replace(/\s+/g, '_'); // e.g., "New York" -> "new_york"
+      const imgPath = `/static/unsplash/${formattedPlace}.jpg`;
+
+      // Preload the image to check if it exists
+      const img = new Image();
+      img.src = imgPath;
+
+      await new Promise((resolve, reject) => {
+        img.onload = () => resolve();
+        img.onerror = () => reject();
+      });
+
+      grid.innerHTML += createCard(place, imgPath);
     } catch (err) {
-      console.error(`Error fetching image for ${place}:`, err);
+      console.error(`Image not found for ${place}, using placeholder`, err);
       grid.innerHTML += createCard(place, "https://via.placeholder.com/400x300");
     }
   }
@@ -405,3 +413,107 @@ function copyItinerary() {
         }, 2000);
     });
 }
+
+
+// JavaScript for Tips Section with Typing Animation
+document.addEventListener('DOMContentLoaded', function() {
+  // Tips array will be populated from the JSON file
+  let tips = [];
+  let currentTipIndex = 0;
+  let isTyping = false;
+  
+  // Elements
+  const tipTitle = document.getElementById('tip-title');
+  const tipDescription = document.getElementById('tip-description');
+  const nextTipButton = document.getElementById('next-tip');
+  
+  // Fetch tips from JSON file
+  fetch('/static/data/tips.json')
+    .then(response => response.json())
+    .then(data => {
+      tips = data;
+      // Show first tip when loaded
+      showRandomTip();
+    })
+    .catch(error => {
+      console.error('Error loading tips:', error);
+      // Fallback if JSON can't be loaded - use hardcoded tips from the JSON
+      tips = [
+        {
+          "title": "Pack Light",
+          "description": "Only bring essentials. A lighter bag makes travel easier and more flexible."
+        },
+        {
+          "title": "Scan Important Documents",
+          "description": "Save copies of your passport, ID, and tickets in your email or cloud storage."
+        },
+        // More hardcoded tips could be added here
+      ];
+      showRandomTip();
+    });
+  
+  // Next tip button event listener
+  nextTipButton.addEventListener('click', function() {
+    if (!isTyping) {
+      showRandomTip();
+    }
+  });
+  
+  // Show a random tip with typing animation
+  function showRandomTip() {
+    // Prevent clicking during animation
+    isTyping = true;
+    
+    // Select a random tip (different from current)
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * tips.length);
+    } while (tips.length > 1 && newIndex === currentTipIndex);
+    
+    currentTipIndex = newIndex;
+    const tip = tips[currentTipIndex];
+    
+    // Clear previous content
+    tipTitle.textContent = '';
+    tipDescription.textContent = '';
+    
+    // Add typing class for cursor effect
+    tipTitle.classList.add('typing');
+    
+    // Type the title
+    typeText(tip.title, tipTitle, function() {
+      // When title is done, remove typing class and add it to description
+      tipTitle.classList.remove('typing');
+      tipDescription.classList.add('typing');
+      
+      // Start typing description after a short delay
+      setTimeout(function() {
+        typeText(tip.description, tipDescription, function() {
+          // When all typing is done
+          tipDescription.classList.remove('typing');
+          isTyping = false;
+        });
+      }, 300);
+    });
+  }
+  
+  // Function for typing animation
+  function typeText(text, element, callback) {
+    let index = 0;
+    const speed = 30; // Typing speed in milliseconds
+    
+    function type() {
+      if (index < text.length) {
+        element.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, speed);
+      } else {
+        // Typing finished
+        if (callback) callback();
+      }
+    }
+    
+    // Start typing
+    type();
+  }
+});

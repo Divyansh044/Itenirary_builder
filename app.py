@@ -33,16 +33,17 @@ def init_db():
     conn = sqlite3.connect("cache.db")
     c = conn.cursor()
     c.execute('''
-        CREATE TABLE IF NOT EXISTS cache (
-            key TEXT PRIMARY KEY,
-            destination TEXT,
-            days INTEGER,
-            budget TEXT,
-            theme TEXT,
-            response TEXT,
-            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
-        )
-    ''')
+    CREATE TABLE IF NOT EXISTS cache (
+        key TEXT PRIMARY KEY,
+        destination TEXT,
+        days INTEGER,
+        budget TEXT,
+        theme TEXT,
+        response TEXT,
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+        last_accessed DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+''')
     conn.commit()
     conn.close()
 
@@ -57,18 +58,51 @@ def fetch_from_cache(key):
     c = conn.cursor()
     c.execute("SELECT response FROM cache WHERE key = ?", (key,))
     row = c.fetchone()
+
+    # Update last accessed time
+    if row:
+        c.execute("UPDATE cache SET last_accessed = CURRENT_TIMESTAMP WHERE key = ?", (key,))
+
+    conn.commit()
     conn.close()
     return row[0] if row else None
+
+
+
+def enforce_cache_limit(max_rows=500):
+    conn = sqlite3.connect("cache.db")
+    c = conn.cursor()
+
+    # Count total entries
+    c.execute("SELECT COUNT(*) FROM cache")
+    count = c.fetchone()[0]
+
+    if count > max_rows:
+        # Delete oldest entries based on least recently accessed
+        to_delete = count - max_rows
+        c.execute('''
+            DELETE FROM cache WHERE key IN (
+                SELECT key FROM cache ORDER BY last_accessed ASC LIMIT ?
+            )
+        ''', (to_delete,))
+
+    conn.commit()
+    conn.close()
+
 
 def save_to_cache(key, destination, days, budget, theme, response):
     conn = sqlite3.connect("cache.db")
     c = conn.cursor()
     c.execute(
-        "INSERT OR REPLACE INTO cache (key, destination, days, budget, theme, response) VALUES (?, ?, ?, ?, ?, ?)",
+        '''INSERT OR REPLACE INTO cache 
+           (key, destination, days, budget, theme, response, timestamp, last_accessed)
+           VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)''',
         (key, destination, days, budget, theme, response)
     )
     conn.commit()
     conn.close()
+    enforce_cache_limit(500)
+
 
 @app.route("/", methods=["GET"])
 def index():
