@@ -1,0 +1,214 @@
+2025-05-19 13:59:03,808 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-05-19 13:59:03,962 - __main__ - INFO - Database initialized successfully
+2025-05-19 13:59:04,066 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-19 13:59:04,066 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-19 13:59:04,068 - werkzeug - INFO -  * Restarting with stat
+2025-05-19 13:59:05,714 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-05-19 13:59:05,910 - __main__ - INFO - Database initialized successfully
+2025-05-19 13:59:05,934 - werkzeug - WARNING -  * Debugger is active!
+2025-05-19 13:59:05,947 - werkzeug - INFO -  * Debugger PIN: 143-279-680
+2025-05-19 13:59:22,777 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:22] "GET / HTTP/1.1" 200 -
+2025-05-19 13:59:23,472 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,480 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,485 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,504 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,515 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,677 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,677 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,775 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,789 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,806 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,830 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,838 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,850 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,867 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 13:59:23,877 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:23] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 13:59:49,206 - __main__ - INFO - Generate request: dest=Rome, days=1, budget=budget, theme=adventure
+2025-05-19 13:59:49,206 - __main__ - INFO - Calling Gemini API for Rome itinerary
+2025-05-19 13:59:49,206 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-05-19 13:59:49,217 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2025-05-19 13:59:49,300 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001E0A4F08B50>
+2025-05-19 13:59:49,300 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001E0A4D10D40> server_hostname='generativelanguage.googleapis.com' timeout=None
+2025-05-19 13:59:49,331 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001E0A4F08E80>
+2025-05-19 13:59:49,331 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-05-19 13:59:49,331 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-05-19 13:59:49,331 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-05-19 13:59:49,331 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-05-19 13:59:49,331 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-05-19 13:59:52,774 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Mon, 19 May 2025 08:29:53 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=3364'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2025-05-19 13:59:52,775 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-05-19 13:59:52,777 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-05-19 13:59:52,777 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-05-19 13:59:52,779 - httpcore.http11 - DEBUG - response_closed.started
+2025-05-19 13:59:52,779 - httpcore.http11 - DEBUG - response_closed.complete
+2025-05-19 13:59:52,781 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-05-19 13:59:52,783 - __main__ - DEBUG - Raw JSON from Gemini: '```json\n{\n  "itinerary": [\n    {\n      "day": 1,\n      "morning": "Start your adventure with a climb up the Gianicolo Hill for panoramic views of Rome. Pack a picnic breakfast to enjoy at the top. (Cost: free, plus picnic food).",\n      "afternoon": "Explore the Appian Way by renting a bike. Cycle through ancient ruins and catacombs (Catacombs of Callixtus are a budget friendly option), immersing yourself in Roman history. Bike rental and Catacomb entry fee estimated.",\n      "evening": "Enjoy a Trastevere food tour focusing on street food and local specialties for a delicious and budget-friendly dinner. End with gelato by the Tiber River.",\n      "estimated_cost_in_dollars": 50\n    }\n  ],\n  "suggested": [\n    "Gianicolo Hill",\n    "Appian Way",\n    "Catacombs of Callixtus",\n    "Trastevere",\n    "Tiber River"\n  ]\n}\n```'
+2025-05-19 13:59:52,783 - __main__ - DEBUG - Cleaned JSON: '{\n  "itinerary": [\n    {\n      "day": 1,\n      "morning": "Start your adventure with a climb up the Gianicolo Hill for panoramic views of Rome. Pack a picnic breakfast to enjoy at the top. (Cost: free, plus picnic food).",\n      "afternoon": "Explore the Appian Way by renting a bike. Cycle through ancient ruins and catacombs (Catacombs of Callixtus are a budget friendly option), immersing yourself in Roman history. Bike rental and Catacomb entry fee estimated.",\n      "evening": "Enjoy a Trastevere food tour focusing on street food and local specialties for a delicious and budget-friendly dinner. End with gelato by the Tiber River.",\n      "estimated_cost_in_dollars": 50\n    }\n  ],\n  "suggested": [\n    "Gianicolo Hill",\n    "Appian Way",\n    "Catacombs of Callixtus",\n    "Trastevere",\n    "Tiber River"\n  ]\n}'
+2025-05-19 13:59:52,787 - __main__ - ERROR - Error saving to cache: table cache has no column named last_accessed
+2025-05-19 13:59:52,787 - __main__ - INFO - Successfully generated itinerary for Rome with 1 days
+2025-05-19 13:59:52,894 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:52] "POST /generate HTTP/1.1" 200 -
+2025-05-19 13:59:52,934 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:52] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 13:59:52,936 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:52] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 13:59:52,953 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 13:59:52] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 14:01:12,285 - werkzeug - INFO -  * Detected change in 'E:\\Itinerary\\app.py', reloading
+2025-05-19 14:01:12,552 - werkzeug - INFO -  * Restarting with stat
+2025-05-19 14:01:19,291 - werkzeug - INFO -  * Restarting with stat
+2025-05-19 14:01:59,740 - werkzeug - INFO -  * Restarting with stat
+2025-05-19 14:02:01,862 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-05-19 14:02:01,969 - __main__ - INFO - Database initialized successfully
+2025-05-19 14:02:02,011 - werkzeug - WARNING -  * Debugger is active!
+2025-05-19 14:02:02,020 - werkzeug - INFO -  * Debugger PIN: 143-279-680
+2025-05-19 14:02:05,293 - werkzeug - INFO -  * Detected change in 'E:\\Itinerary\\app.py', reloading
+2025-05-19 14:02:05,445 - werkzeug - INFO -  * Restarting with stat
+2025-05-19 14:02:07,442 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-05-19 14:02:07,581 - __main__ - INFO - Database initialized successfully
+2025-05-19 14:02:07,625 - werkzeug - WARNING -  * Debugger is active!
+2025-05-19 14:02:07,635 - werkzeug - INFO -  * Debugger PIN: 143-279-680
+2025-05-19 14:02:08,945 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:08] "GET / HTTP/1.1" 200 -
+2025-05-19 14:02:09,619 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,628 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,628 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,659 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,668 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,676 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,681 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,694 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,700 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,812 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,822 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,830 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,843 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,851 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 14:02:09,859 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:09] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 14:02:29,008 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-05-19 14:02:29,014 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2025-05-19 14:02:29,142 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BCA90C6730>
+2025-05-19 14:02:29,142 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001BCA8EBCE40> server_hostname='generativelanguage.googleapis.com' timeout=None
+2025-05-19 14:02:29,190 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BCA90C6340>
+2025-05-19 14:02:29,190 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-05-19 14:02:29,197 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-05-19 14:02:29,197 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-05-19 14:02:29,197 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-05-19 14:02:29,197 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-05-19 14:02:32,116 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Mon, 19 May 2025 08:32:32 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=2752'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2025-05-19 14:02:32,116 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-05-19 14:02:32,116 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-05-19 14:02:32,116 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-05-19 14:02:32,116 - httpcore.http11 - DEBUG - response_closed.started
+2025-05-19 14:02:32,116 - httpcore.http11 - DEBUG - response_closed.complete
+2025-05-19 14:02:32,116 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-05-19 14:02:32,126 - __main__ - ERROR - Error saving to cache: table cache has no column named last_accessed
+2025-05-19 14:02:32,137 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:32] "POST /generate HTTP/1.1" 200 -
+2025-05-19 14:02:32,166 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:32] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 14:02:32,166 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:32] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 14:02:32,192 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 14:02:32] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,477 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "GET / HTTP/1.1" 200 -
+2025-05-19 20:15:33,583 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,585 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,585 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,847 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,847 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,887 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,890 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,901 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,915 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,931 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,946 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,958 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,973 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,981 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:15:33,997 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:15:33] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:44,884 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:44] "GET / HTTP/1.1" 200 -
+2025-05-19 20:18:45,038 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,038 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,043 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,072 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,072 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,092 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,092 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,204 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,391 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,400 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,416 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,426 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,437 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,451 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:45,454 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:45] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,150 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "GET / HTTP/1.1" 200 -
+2025-05-19 20:18:52,279 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,279 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,279 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,315 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,315 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,338 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,338 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,351 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,359 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,367 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,375 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,383 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,392 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,400 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:18:52,468 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:18:52] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:19:09,891 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:19:09] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-19 20:19:09,945 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:19:09] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 20:21:50,899 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2025-05-19 20:21:50,906 - httpcore.connection - DEBUG - close.started
+2025-05-19 20:21:50,908 - httpcore.connection - DEBUG - close.complete
+2025-05-19 20:21:50,908 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2025-05-19 20:21:50,948 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BCA906D4F0>
+2025-05-19 20:21:50,948 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001BCA8EBCE40> server_hostname='generativelanguage.googleapis.com' timeout=None
+2025-05-19 20:21:50,968 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BCA906D6D0>
+2025-05-19 20:21:50,968 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-05-19 20:21:50,968 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-05-19 20:21:50,968 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-05-19 20:21:50,977 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-05-19 20:21:50,977 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-05-19 20:21:55,384 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Mon, 19 May 2025 14:51:55 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=4282'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2025-05-19 20:21:55,384 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 200 OK"
+2025-05-19 20:21:55,384 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-05-19 20:21:55,384 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-05-19 20:21:55,384 - httpcore.http11 - DEBUG - response_closed.started
+2025-05-19 20:21:55,384 - httpcore.http11 - DEBUG - response_closed.complete
+2025-05-19 20:21:55,384 - google_genai.models - INFO - AFC remote call 1 is done.
+2025-05-19 20:21:55,486 - __main__ - ERROR - Error saving to cache: table cache has no column named last_accessed
+2025-05-19 20:21:55,500 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:21:55] "POST /generate HTTP/1.1" 200 -
+2025-05-19 20:21:55,544 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:21:55] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 20:21:55,549 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:21:55] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 20:21:55,577 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:21:55] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 20:24:11,722 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:11] "GET / HTTP/1.1" 200 -
+2025-05-19 20:24:11,778 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:11] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 20:24:11,778 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:11] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:24:11,815 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:11] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 20:24:11,837 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:11] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 20:24:11,843 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:11] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:24:11,859 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:11] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:24:11,859 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:11] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:24:12,006 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:12] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:24:12,014 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:12] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:24:12,023 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:12] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:24:12,032 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:12] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:24:12,040 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:12] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:24:12,047 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:12] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:24:12,055 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:12] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:24:12,064 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:24:12] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:42:36,203 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:36] "GET / HTTP/1.1" 200 -
+2025-05-19 20:42:38,095 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,099 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,099 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,133 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,137 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,154 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,154 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,269 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,286 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,299 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,306 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,319 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,327 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,335 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:42:38,344 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 20:42:38] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 20:44:12,896 - werkzeug - INFO -  * Detected change in 'E:\\Itinerary\\app.py', reloading
+2025-05-19 20:44:14,276 - werkzeug - INFO -  * Restarting with stat
+2025-05-19 20:44:19,153 - asyncio - DEBUG - Using proactor: IocpProactor

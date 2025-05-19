@@ -7,13 +7,28 @@ from dotenv import load_dotenv
 from datetime import datetime
 import re
 import requests
+import traceback
+import logging
+
+# Set up logging
+logging.basicConfig(level=logging.DEBUG, 
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    handlers=[logging.FileHandler("app.log"), logging.StreamHandler()])
+logger = logging.getLogger(__name__)
+
 load_dotenv()
 app = Flask(__name__)
 
+# Check if API key is available
+if not os.getenv("GEMINI_API_KEY"):
+    logger.error("GEMINI_API_KEY not found in environment variables!")
 
-client= genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY")
+if not UNSPLASH_ACCESS_KEY:
+    logger.warning("UNSPLASH_ACCESS_KEY not found in environment variables")
+
 @app.route('/api/unsplash')
 def unsplash_proxy():
     query = request.args.get('query', 'travel')
@@ -28,24 +43,30 @@ def unsplash_proxy():
     }
     resp = requests.get(url, params=params)
     return jsonify(resp.json()), resp.status_code
+
 # Initialize SQLite DB
 def init_db():
-    conn = sqlite3.connect("cache.db")
-    c = conn.cursor()
-    c.execute('''
-    CREATE TABLE IF NOT EXISTS cache (
-        key TEXT PRIMARY KEY,
-        destination TEXT,
-        days INTEGER,
-        budget TEXT,
-        theme TEXT,
-        response TEXT,
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-        last_accessed DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-''')
-    conn.commit()
-    conn.close()
+    try:
+        conn = sqlite3.connect("cache.db")
+        c = conn.cursor()
+        c.execute('''
+        CREATE TABLE IF NOT EXISTS cache (
+            key TEXT PRIMARY KEY,
+            destination TEXT,
+            days INTEGER,
+            budget TEXT,
+            theme TEXT,
+            response TEXT,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+            last_accessed DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+        conn.commit()
+        conn.close()
+        logger.info("Database initialized successfully")
+    except Exception as e:
+        logger.error(f"Database initialization failed: {str(e)}")
+        raise
 
 init_db()
 
@@ -54,55 +75,64 @@ def generate_cache_key(destination, days, budget, theme):
     return f"{destination}_{days}_{budget}_{theme}".lower()
 
 def fetch_from_cache(key):
-    conn = sqlite3.connect("cache.db")
-    c = conn.cursor()
-    c.execute("SELECT response FROM cache WHERE key = ?", (key,))
-    row = c.fetchone()
+    try:
+        conn = sqlite3.connect("cache.db")
+        c = conn.cursor()
+        c.execute("SELECT response FROM cache WHERE key = ?", (key,))
+        row = c.fetchone()
 
-    # Update last accessed time
-    if row:
-        c.execute("UPDATE cache SET last_accessed = CURRENT_TIMESTAMP WHERE key = ?", (key,))
+        # Update last accessed time
+        if row:
+            c.execute("UPDATE cache SET last_accessed = CURRENT_TIMESTAMP WHERE key = ?", (key,))
+            logger.debug(f"Cache hit for key: {key}")
 
-    conn.commit()
-    conn.close()
-    return row[0] if row else None
-
-
+        conn.commit()
+        conn.close()
+        return row[0] if row else None
+    except Exception as e:
+        logger.error(f"Error fetching from cache: {str(e)}")
+        return None
 
 def enforce_cache_limit(max_rows=500):
-    conn = sqlite3.connect("cache.db")
-    c = conn.cursor()
+    try:
+        conn = sqlite3.connect("cache.db")
+        c = conn.cursor()
 
-    # Count total entries
-    c.execute("SELECT COUNT(*) FROM cache")
-    count = c.fetchone()[0]
+        # Count total entries
+        c.execute("SELECT COUNT(*) FROM cache")
+        count = c.fetchone()[0]
 
-    if count > max_rows:
-        # Delete oldest entries based on least recently accessed
-        to_delete = count - max_rows
-        c.execute('''
-            DELETE FROM cache WHERE key IN (
-                SELECT key FROM cache ORDER BY last_accessed ASC LIMIT ?
-            )
-        ''', (to_delete,))
+        if count > max_rows:
+            # Delete oldest entries based on least recently accessed
+            to_delete = count - max_rows
+            c.execute('''
+                DELETE FROM cache WHERE key IN (
+                    SELECT key FROM cache ORDER BY last_accessed ASC LIMIT ?
+                )
+            ''', (to_delete,))
+            logger.info(f"Cache cleanup: removed {to_delete} least recently accessed entries")
 
-    conn.commit()
-    conn.close()
-
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        logger.error(f"Error enforcing cache limit: {str(e)}")
 
 def save_to_cache(key, destination, days, budget, theme, response):
-    conn = sqlite3.connect("cache.db")
-    c = conn.cursor()
-    c.execute(
-        '''INSERT OR REPLACE INTO cache 
-           (key, destination, days, budget, theme, response, timestamp, last_accessed)
-           VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)''',
-        (key, destination, days, budget, theme, response)
-    )
-    conn.commit()
-    conn.close()
-    enforce_cache_limit(500)
-
+    try:
+        conn = sqlite3.connect("cache.db")
+        c = conn.cursor()
+        c.execute(
+            '''INSERT OR REPLACE INTO cache 
+               (key, destination, days, budget, theme, response, timestamp, last_accessed)
+               VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)''',
+            (key, destination, days, budget, theme, response)
+        )
+        conn.commit()
+        conn.close()
+        logger.debug(f"Saved to cache: {key}")
+        enforce_cache_limit(500)
+    except Exception as e:
+        logger.error(f"Error saving to cache: {str(e)}")
 
 @app.route("/", methods=["GET"])
 def index():
@@ -204,5 +234,6 @@ Note: The suggested list will only have the places that are mention in the itine
         return render_template("itinerary.html", error=f"Error generating itinerary: {str(e)}")
     
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
