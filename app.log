@@ -212,3 +212,87 @@
 2025-05-19 20:44:12,896 - werkzeug - INFO -  * Detected change in 'E:\\Itinerary\\app.py', reloading
 2025-05-19 20:44:14,276 - werkzeug - INFO -  * Restarting with stat
 2025-05-19 20:44:19,153 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-05-19 21:06:43,964 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-05-19 21:06:44,149 - __main__ - INFO - Database initialized successfully
+2025-05-19 21:06:44,193 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.178:5000
+2025-05-19 21:06:44,193 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-19 21:06:47,065 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:47] "GET / HTTP/1.1" 200 -
+2025-05-19 21:06:47,730 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:47] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 21:06:47,735 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:47] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:06:47,757 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:47] "GET /static/css/styles.css HTTP/1.1" 200 -
+2025-05-19 21:06:47,789 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:47] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:06:47,797 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:47] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:06:47,923 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:47] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 21:06:47,923 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:47] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:06:48,044 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:48] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:06:48,079 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:48] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:06:48,087 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:48] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:06:48,107 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:48] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:06:48,119 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:48] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:06:48,135 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:48] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:06:48,144 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:48] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:06:48,158 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:48] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:06:52,504 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:52] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 21:06:52,520 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:06:52] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-19 21:10:09,214 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "GET / HTTP/1.1" 200 -
+2025-05-19 21:10:09,252 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,252 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,273 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "GET /static/css/styles.css HTTP/1.1" 200 -
+2025-05-19 21:10:09,305 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,311 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,316 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,322 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,336 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,417 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,424 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,433 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,441 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,457 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,461 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:09,474 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:09] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,313 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "GET / HTTP/1.1" 200 -
+2025-05-19 21:10:10,351 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,358 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,361 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,385 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,387 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,412 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,413 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,497 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,501 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,509 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,522 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,530 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,542 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,552 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:10,559 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:10] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:10:14,653 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:14] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 21:10:14,698 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:10:14] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-19 21:28:01,805 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-05-19 21:28:01,967 - __main__ - INFO - Database initialized successfully
+2025-05-19 21:28:01,991 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.178:5000
+2025-05-19 21:28:01,991 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-19 21:28:06,335 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:06] "GET / HTTP/1.1" 200 -
+2025-05-19 21:28:07,074 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/hero_images/hero3.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,093 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "GET /static/css/styles.css HTTP/1.1" 200 -
+2025-05-19 21:28:07,120 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-05-19 21:28:07,138 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/hero_images/hero1.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,140 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/hero_images/hero2.avif HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,417 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/data/tips.json HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,417 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/unsplash/paris.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,452 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/unsplash/tokyo.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,478 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/unsplash/new_york.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,490 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/unsplash/bali.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,502 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/unsplash/rome.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,514 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/unsplash/dubai.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,529 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/unsplash/santorini.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,539 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/unsplash/london.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:28:07,551 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:07] "[36mGET /static/unsplash/kyoto.jpg HTTP/1.1[0m" 304 -
+2025-05-19 21:28:13,390 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:13] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2025-05-19 21:28:13,429 - werkzeug - INFO - 127.0.0.1 - - [19/May/2025 21:28:13] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -

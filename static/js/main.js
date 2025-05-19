@@ -52,6 +52,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileSidebar = document.querySelector('.mobile-sidebar');
+  const overlay = document.querySelector('.mobile-sidebar-overlay');
+  const mobileLinks = document.querySelectorAll('.mobile-sidebar .nav-link, .mobile-sidebar .btn-plan');
+
+  // Toggle sidebar when menu button is clicked
+  menuToggle.addEventListener('click', function() {
+    mobileSidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = mobileSidebar.classList.contains('active') ? 'hidden' : '';
+  });
+
+  // Close sidebar when overlay is clicked
+  overlay.addEventListener('click', function() {
+    mobileSidebar.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  // Close sidebar when a link is clicked
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      mobileSidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+});
 // Function to copy the itinerary to clipboard
 function copyItinerary() {
     // This function is defined inline in the itinerary.html template
